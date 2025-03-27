@@ -13,16 +13,23 @@
   <body>
     <header>
       <h1>GTA Characters</h1>
+      <h2>Select a character to see more details</h2>
       <input
         type="text"
         id="searchBar"
         placeholder="Search characters..."
         style="width: 100%; padding: 10px; margin-top: 10px; font-size: 16px"
       />
-      <ul id="characters"></ul>
-      <div id="character"></div>
-
-      <h2>Select a character to see more details</h2>
+      <div id="content">
+        <ul id="characters"></ul>
+        <!-- Character list on the left -->
+        <div id="character"></div>
+        <!-- Selected character details on the right -->
+      </div>
+      <div id="topLiked">
+        <h3>Most Liked</h3>
+        <ul id="mostLikedList"></ul>
+      </div>
     </header>
     <script src="script.js"></script>
   </body>

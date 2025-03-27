@@ -10,44 +10,47 @@ body {
     flex-direction: column; /* Stack header and content vertically */
     align-items: center; /* Center content horizontally */
     height: 100vh;
+    background: url('gta-bg.jpg') no-repeat center center fixed;
     background-size: cover;
-    background-position: center;
+    backdrop-filter: blur(5px);
 }
 
 /* Header with GTA-style font */
 header {
     background-image: url('gta-banner.jpg'); /* Optional background image */
-    background-size: cover; /* This will stretch the image to cover the entire area */
-    background-position: center; /* Center the background image */
-    background-repeat: no-repeat; /* Ensure the background image doesn't repeat */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: #f39c12; /* GTA yellow */
     padding: 10px 20px;
     text-align: center;
     width: 100%;
-    font-family: 'Bangers', sans-serif; /* GTA font */
-    font-size: 50px; /* Large font size for the title */
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8); /* GTA-like shadow */
+    font-family: 'Bangers', sans-serif;
+    font-size: 50px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
 }
 
-/* Content layout */
+/* Main Content Layout */
 #content {
     display: flex;
     width: 80%;
     max-width: 1200px;
     margin-top: 20px;
+    height: auto;
+    justify-content: space-between;
+    gap: 20px;
 }
 
-/* Character list (left panel) */
+/* Character List (Left Panel) */
 #characters {
     flex: 1;
-    margin: 20px;
-    list-style-type: none;
-    padding: 0;
+    padding: 10px;
     background-color: #2c3e50;
     border-radius: 5px;
     max-height: 500px;
     overflow-y: auto;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    min-width: 250px;
 }
 
 #characters li {
@@ -63,7 +66,7 @@ header {
 }
 
 #characters li:hover {
-    background-color: #f39c12; /* Hover effect with GTA yellow */
+    background-color: #f39c12;
     color: #2c3e50;
 }
 
@@ -73,10 +76,9 @@ header {
     margin-right: 10px;
 }
 
-/* Character details (right panel) */
+/* Character Details (Right Panel) */
 #character {
-    flex: 2;
-    margin: 20px;
+    flex: 2; /* Takes up more space */
     padding: 20px;
     background-color: #34495e;
     border-radius: 5px;
@@ -90,24 +92,96 @@ header {
     margin-top: 10px;
 }
 
+/* Most Liked Characters (Centered Below) */
+#topLiked {
+    width: 100%;
+    padding: 10px;
+    background-color: #2c3e50;
+    border-radius: 5px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    color: white;
+    overflow-y: auto;
+    text-align: center;
+    margin-top: 20px; /* Push it below the main content */
+}
+
+#topLiked h3 {
+    color: #f39c12;
+    font-size: 60px;
+}
+
+#mostLikedList {
+    list-style: none;
+    padding: 0;
+}
+
+#mostLikedList li {
+    background-color: #34495e;
+    margin: auto;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    justify-content: center;
+}
+
+#mostLikedList img {
+    width: 40px;
+    height: auto;
+    margin-right: 10px;
+}
+
 /* Text Styling */
 h2 {
     margin: 0;
     font-size: 28px;
-    color: #f39c12; /* GTA yellow for emphasis */
+    color: #f39c12;
 }
 
 p {
     margin: 10px 0;
-    font-size: 18px;
-    color: #ecf0f1;
+    font-size: 20px;
+    color: #ffffff;
 }
 
 #character p {
     font-size: 16px;
 }
 
-/* Optional Scrollbar Style for Character List */
+/* Search Bar Styling */
+#searchBar {
+    width: 30%;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 16px;
+    border: 2px solid #f39c12;
+    border-radius: 5px;
+    background-color: #2c3e50;
+    color: #fff;
+    box-shadow: 0 0 8px rgba(243, 156, 18, 0.5);
+}
+
+/* Button Styling */
+button {
+    background-color: #f39c12;
+    border: none;
+    padding: 10px 15px;
+    margin-right: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #2c3e50;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #e67e22;
+    transform: scale(1.05);
+}
+
+/* Scrollbar Style */
 #characters::-webkit-scrollbar {
     width: 8px;
 }
@@ -116,12 +190,19 @@ p {
     background-color: #f39c12;
     border-radius: 10px;
 }
-/* Search Bar Styling */
-#searchBar {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    #content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #characters, #character {
+        width: 90%;
+    }
+
+    #topLiked {
+        width: 90%;
+    }
 }
