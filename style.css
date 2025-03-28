@@ -1,4 +1,3 @@
-/* styles.css */
 
 /* General body styling */
 body {
@@ -10,14 +9,12 @@ body {
     flex-direction: column; /* Stack header and content vertically */
     align-items: center; /* Center content horizontally */
     height: 100vh;
-    background: url('gta-bg.jpg') no-repeat center center fixed;
+    background: url('images/gta-banner.jpeg') no-repeat center center fixed;
     background-size: cover;
-    backdrop-filter: blur(5px);
 }
 
 /* Header with GTA-style font */
 header {
-    background-image: url('gta-banner.jpg'); /* Optional background image */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

@@ -30,6 +30,18 @@
         <h3>Most Liked</h3>
         <ul id="mostLikedList"></ul>
       </div>
+      <button id="addCharacterBtn">Add Character</button>
+
+<form id="addCharacterForm" style="display: none;">
+  <input type="text" id="name" placeholder="Character Name" required />
+  <input type="text" id="image" placeholder="Image URL" required />
+  <input type="text" id="city" placeholder="City" required />
+  <input type="text" id="occupation" placeholder="Occupation" required />
+  <input type="text" id="status" placeholder="Status" required />
+  <textarea id="description" placeholder="Description" required></textarea>
+  <button type="button" onclick="addCharacter()">Submit</button>
+</form>
+
     </header>
     <script src="script.js"></script>
   </body>
