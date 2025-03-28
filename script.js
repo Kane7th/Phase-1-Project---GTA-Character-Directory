@@ -106,7 +106,7 @@ async function syncWithJSONBin(characters) {
     try {
         const API_KEY = "$2a$10$E8UBICtdASlXxgsveab1b.iH4NNr5XDL0kN/S9x67R6R4eEMnSP4a";  
 
-        const response = await fetch("https://api.jsonbin.io/v3/b/67e4eb358960c979a5794056", {
+        const response = await fetch("https://api.jsonbin.io/v3/b/67e41f578a456b79667d236e", {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -251,3 +251,6 @@ function saveLikesToStorage(characters) {
     });
     localStorage.setItem("likedCharacters", JSON.stringify(likedCharacters));
 }
+
+const characterImage = document.createElement("img");
+characterImage.src = character.image; // Will load "images/trevor.webp"
