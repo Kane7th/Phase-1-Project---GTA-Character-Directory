@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 // Function to fetch characters from API
 async function fetchCharacters() {
     try {
-        const response = await fetch("https://api.jsonbin.io/v3/b/67e4eb358960c979a5794056");
+        const response = await fetch("https://api.jsonbin.io/v3/b/67e41f578a456b79667d236e");
         const data = await response.json();
         console.log("Fetched Characters:", data.record);
 
