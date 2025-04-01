@@ -52,14 +52,18 @@ async function fetchCharacters() {
         return data.record.characters.map(character => ({
             ...character,
             likes: character.likes || 0,   // Preserve likes
-            dislikes: character.dislikes || 0  // Preserve dislikes
+            dislikes: character.dislikes || 0, // Preserve dislikes
+            city: character.city || "Unknown", // Preserve city
+            occupation: character.occupation || "Unknown", // Preserve occupation
+            status: character.status || "Unknown", // Preserve status
+            missions: character.missions || "N/A", // Preserve missions
+            description: character.description || "No description available." // Preserve description
         }));
     } catch (error) {
         console.error("Error fetching characters:", error);
         return [];
     }
 }
-
 
 // Function to merge API characters with locally stored ones
 function mergeCharacters(apiCharacters, storedCharacters) {
@@ -127,8 +131,6 @@ async function syncWithJSONBin(characters) {
     }
 }
 
-
-
 // Function to load stored likes and last viewed character
 function loadStoredData(characters) {
     const storedLikes = JSON.parse(localStorage.getItem("likedCharacters")) || {};
@@ -139,7 +141,6 @@ function loadStoredData(characters) {
         }
     });
 }
-
 
 // Function to populate the character list
 function populateCharacters(characters) {
@@ -197,14 +198,26 @@ function populateCharacter(character, characters) {
     imageElement.alt = character.name;
     imageElement.style.maxWidth = "300px";
 
+    const cityElement = document.createElement("p");
+    cityElement.innerHTML = `<strong>City:</strong> ${character.city}`;
+
+    const occupationElement = document.createElement("p");
+    occupationElement.innerHTML = `<strong>Occupation:</strong> ${character.occupation}`;
+
+    const statusElement = document.createElement("p");
+    statusElement.innerHTML = `<strong>Status:</strong> ${character.status}`;
+
+    const missionsElement = document.createElement("p");
+    missionsElement.innerHTML = `<strong>Missions Involved:</strong> ${character.missions}`;
+
     const descriptionElement = document.createElement("p");
-    descriptionElement.textContent = character.description || "No description available.";
+    descriptionElement.innerHTML = `<strong>Description:</strong> ${character.description}`;
 
     // Create like and dislike buttons
     const likeButton = createLikeButton(character, characters);
     const dislikeButton = createDislikeButton(character, characters);
 
-    characterElement.append(nameElement, imageElement, descriptionElement, likeButton, dislikeButton);
+    characterElement.append(nameElement, imageElement, cityElement, occupationElement, statusElement, missionsElement, descriptionElement, likeButton, dislikeButton);
     localStorage.setItem("lastViewedCharacter", character.name);
 }
 
@@ -243,7 +256,6 @@ function createDislikeButton(character, characters) {
     return dislikeButton;
 }
 
-
 function saveLikesToStorage(characters) {
     const likedCharacters = {};
     characters.forEach(char => {
@@ -251,6 +263,3 @@ function saveLikesToStorage(characters) {
     });
     localStorage.setItem("likedCharacters", JSON.stringify(likedCharacters));
 }
-
-const characterImage = document.createElement("img");
-characterImage.src = character.image; // Will load "images/trevor.webp"

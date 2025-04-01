@@ -23,8 +23,17 @@
       <div id="content">
         <ul id="characters"></ul>
         <!-- Character list on the left -->
-        <div id="character"></div>
-        <!-- Selected character details on the right -->
+        <div id="character">
+          <h3 id="charName"></h3>
+          <img id="charImage" src="" alt="Character Image" style="width: 200px; height: auto; display: none;" />
+          <p><strong>City:</strong> <span id="charCity"></span></p>
+          <p><strong>Occupation:</strong> <span id="charOccupation"></span></p>
+          <p><strong>Status:</strong> <span id="charStatus"></span></p>
+          <p><strong>Missions Involved:</strong> <span id="charMissions"></span></p>
+          <p><strong>Description:</strong> <span id="charDescription"></span></p>
+          <p><strong>Likes:</strong> <span id="charLikes"></span></p>
+          <p><strong>Dislikes:</strong> <span id="charDislikes"></span></p>
+        </div>
       </div>
       <div id="topLiked">
         <h3>Most Liked</h3>
@@ -32,17 +41,23 @@
       </div>
       <button id="addCharacterBtn">Add Character</button>
 
-<form id="addCharacterForm" style="display: none;">
-  <input type="text" id="name" placeholder="Character Name" required />
-  <input type="text" id="image" placeholder="Image URL" />
-  <input type="text" id="city" placeholder="City" required />
-  <input type="text" id="occupation" placeholder="Occupation" required />
-  <input type="text" id="status" placeholder="Status" required />
-  <textarea id="description" placeholder="Description" required></textarea>
-  <button type="button" onclick="addCharacter()">Submit</button>
-</form>
-
+      <form id="addCharacterForm" style="display: none;">
+        <input type="text" id="name" placeholder="Character Name" required />
+        <input type="text" id="image" placeholder="Image URL" />
+        <input type="text" id="city" placeholder="City" required />
+        <input type="text" id="occupation" placeholder="Occupation" required />
+        <input type="text" id="status" placeholder="Status" required />
+        <input type="number" id="missions" placeholder="Missions Involved" required />
+        <textarea id="description" placeholder="Description" required></textarea>
+        <button type="button" onclick="addCharacter()">Submit</button>
+      </form>
     </header>
+    
+    <section id="missingDetails" style="display: none;">
+      <h3>Missing Details</h3>
+      <p id="missingDetailsMessage">Some character details are incomplete. Please update the missing information.</p>
+    </section>
+    
     <script src="script.js"></script>
   </body>
 </html>
