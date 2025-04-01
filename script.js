@@ -56,7 +56,7 @@ async function fetchCharacters() {
             city: character.city || "Unknown", // Preserve city
             occupation: character.occupation || "Unknown", // Preserve occupation
             status: character.status || "Unknown", // Preserve status
-            missions: character.missions || "N/A", // Preserve missions
+            missions_involved: character.missions_involved || 0, // Preserve number of missions
             description: character.description || "No description available." // Preserve description
         }));
     } catch (error) {
@@ -208,7 +208,7 @@ function populateCharacter(character, characters) {
     statusElement.innerHTML = `<strong>Status:</strong> ${character.status}`;
 
     const missionsElement = document.createElement("p");
-    missionsElement.innerHTML = `<strong>Missions Involved:</strong> ${character.missions}`;
+    missionsElement.innerHTML = `<strong>Missions Involved:</strong> ${character.missions_involved || "N/A"}`;
 
     const descriptionElement = document.createElement("p");
     descriptionElement.innerHTML = `<strong>Description:</strong> ${character.description}`;
